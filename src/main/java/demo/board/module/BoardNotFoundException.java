@@ -1,6 +1,6 @@
 package demo.board.module;
 
-public class BoardNotFoundException extends RuntimeException {
+public class BoardNotFoundException extends ResourceNotFoundException {
 	
 	private final String boardname;
 
@@ -8,8 +8,13 @@ public class BoardNotFoundException extends RuntimeException {
 		this.boardname = boardname;
 	}
 	
+	@Override
 	public Object[] getArgs(){
 		return new Object[]{ boardname };
 	}
 	
+	@Override
+	public String getCode(){
+		return "error.BoardNotFoundException";
+	}
 }
